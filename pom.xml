@@ -1,8 +1,62 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>eu.indenica.runtime</groupId>
-  <artifactId>interfaces</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>Indenica Monitoring and Adaptation Interface Library</name>
-  <description>Common interfaces for communication with the Indenica runtime</description>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>eu.indenica.runtime</groupId>
+	<artifactId>interfaces</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>Indenica Monitoring and Adaptation Interface Library</name>
+	<description>Common interfaces for communication with the Indenica runtime</description>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	<licenses>
+		<license>
+			<name>The MIT License</name>
+			<url>http://opensource.org/licenses/MIT</url>
+			<comments>
+				Copyright (c) 2010-2012 Vienna University of Technology
+			</comments>
+		</license>
+	</licenses>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+				<executions>
+					<execution>
+						<goals>
+							<goal>jar</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>findbugs-maven-plugin</artifactId>
+				<version>1.2</version>
+				<configuration>
+					<findbugsXmlOutput>true</findbugsXmlOutput>
+					<findbugsXmlWithMessages>true</findbugsXmlWithMessages>
+					<xmlOutput>true</xmlOutput>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+	<distributionManagement>
+		<repository>
+			<id>indenica-tuv-releases</id>
+			<url>file:///${project.basedir}/../../github/releases/</url>
+		</repository>
+		<snapshotRepository>
+			<id>indenica-tuv-snapshots</id>
+			<url>file:///${project.basedir}/../../github/snapshots/</url>
+		</snapshotRepository>
+	</distributionManagement>
+	<organization>
+		<name>Distributed Systems Group, Vienna University of Technology</name>
+		<url>http://dsg.tuwien.ac.at</url>
+	</organization>
 </project>
