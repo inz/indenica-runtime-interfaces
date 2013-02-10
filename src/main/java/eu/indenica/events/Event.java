@@ -3,12 +3,14 @@
  */
 package eu.indenica.events;
 
+import java.io.Serializable;
+
 /**
  * This class represents monitoring events emitted by integrated platforms
  * through their {@link PlatformAdapter}s and/or {@link MonitoringQuery}s.
  * 
  * <p>
- * An event is a considered a POJO, so developers can easily define custom
+ * An event is considered a POJO, so developers can easily define custom
  * events that suite their specific needs.
  * 
  * <p>
@@ -18,8 +20,8 @@ package eu.indenica.events;
  * @author Christian Inzinger
  */
 // @XmlSeeAlso()
-public class Event {
-
+public class Event implements Serializable {
+	private static final long serialVersionUID = -4694958384338278522L;
 	protected String eventType;
 	
 	public Event() { }
