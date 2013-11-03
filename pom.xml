@@ -5,11 +5,15 @@
 	<version>0.1.2-SNAPSHOT</version>
 	<name>Indenica Monitoring and Adaptation Interface Library</name>
 	<description>Common interfaces for communication with the Indenica runtime</description>
+  
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <github.global.server>github</github.global.server>
+    <deploy.targetRepository>${project.build.directory}/mvn-snapshots</deploy.targetRepository>
+    <deploy.repositoryName>snapshots</deploy.repositoryName>
 	</properties>
-	<licenses>
+	
+  <licenses>
 		<license>
 			<name>Apache License, Version 2.0</name>
 			<url>http://www.apache.org/licenses/LICENSE-2.0</url>
@@ -50,6 +54,14 @@
 					<xmlOutput>true</xmlOutput>
 				</configuration>
 			</plugin> -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>2.4.2</version>
+        <configuration>
+          <releaseProfiles>release</releaseProfiles>
+        </configuration>
+      </plugin>
 						<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -69,34 +81,11 @@
           <configuration>
             <message>Maven artifacts for ${project.version}</message>
             <noJekyll>true</noJekyll>
-            <outputDirectory>${project.build.directory}/mvn-releases</outputDirectory>
+            <outputDirectory>${deploy.targetRepository}</outputDirectory>
             <branch>refs/heads/mvn</branch>
             <merge>true</merge>
             <includes><include>**/*</include></includes>
-            <repositoryName>releases</repositoryName>
-            <repositoryOwner>indenicatuv</repositoryOwner>
-          </configuration>
-          <executions>
-            <execution>
-              <goals>
-                <goal>site</goal>
-              </goals>
-              <phase>deploy</phase>
-            </execution>
-          </executions>
-      </plugin>
-      <plugin>
-          <groupId>com.github.github</groupId>
-          <artifactId>site-maven-plugin</artifactId>
-          <version>0.9</version>
-          <configuration>
-            <message>Maven artifacts for ${project.version}</message>
-            <noJekyll>true</noJekyll>
-            <outputDirectory>${project.build.directory}/mvn-snapshots</outputDirectory>
-            <branch>refs/heads/mvn</branch>
-            <merge>true</merge>
-            <includes><include>**/*</include></includes>
-            <repositoryName>snapshots</repositoryName>
+            <repositoryName>${deploy.repositoryName}</repositoryName>
             <repositoryOwner>indenicatuv</repositoryOwner>
           </configuration>
           <executions>
@@ -110,6 +99,16 @@
       </plugin>
 		</plugins>
 	</build>
+  
+  <profiles>
+    <profile>
+      <id>release</id>
+      <properties>
+        <deploy.targetRepository>${project.build.directory}/mvn-releases</deploy.targetRepository>
+        <deploy.repositoryName>releases</deploy.repositoryName>
+      </properties>
+    </profile>
+  </profiles>
 
 	<distributionManagement>
     <repository>
