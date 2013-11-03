@@ -7,6 +7,7 @@
 	<description>Common interfaces for communication with the Indenica runtime</description>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <github.global.server>github</github.global.server>
 	</properties>
 	<licenses>
 		<license>
