@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>eu.indenica.runtime</groupId>
 	<artifactId>interfaces</artifactId>
-	<version>0.1.0</version>
+	<version>0.1.1-SNAPSHOT</version>
 	<name>Indenica Monitoring and Adaptation Interface Library</name>
 	<description>Common interfaces for communication with the Indenica runtime</description>
 	<properties>
@@ -22,7 +22,7 @@
     <url>https://github.com/inz/indenica-runtime-interfaces</url>
     <connection>scm:git:git://github.com/inz/indenica-runtime-interfaces.git</connection>
     <developerConnection>scm:git:git@github.com:inz/indenica-runtime-interfaces.git</developerConnection>
-    <tag>interfaces-0.1.0</tag>
+    <tag>HEAD</tag>
   </scm>
 
 	<build>
