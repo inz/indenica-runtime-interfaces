@@ -18,6 +18,12 @@
 			</comments>
 		</license>
 	</licenses>
+  
+  <scm>
+    <url>https://github.com/inz/indenica-runtime-interfaces</url>
+    <connection>scm:git:git://github.com/inz/indenica-runtime-interfaces.git</connection>
+    <developerConnection>scm:git:git@github.com:inz/indenica-runtime-interfaces.git</developerConnection>
+  </scm>
 
 	<build>
 		<plugins>
@@ -58,14 +64,16 @@
 	</build>
 
 	<distributionManagement>
-		<repository>
-			<id>indenica-tuv-releases</id>
-			<url>file:///${project.basedir}/../../github/releases/</url>
-		</repository>
-		<snapshotRepository>
-			<id>indenica-tuv-snapshots</id>
-			<url>file:///${project.basedir}/../../github/snapshots/</url>
-		</snapshotRepository>
+    <repository>
+      <id>internal.release</id>
+      <name>Temporary Staging Repository</name>
+      <url>file://${project.build.directory}/mvn-releases</url>
+    </repository>
+    <snapshotRepository>
+      <id>internal.release</id>
+      <name>Temporary Staging Repository</name>
+      <url>file://${project.build.directory}/mvn-snapshots</url>
+    </snapshotRepository>
 	</distributionManagement>
 	<organization>
 		<name>Distributed Systems Group, Vienna University of Technology</name>
