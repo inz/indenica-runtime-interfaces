@@ -30,6 +30,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
+				<version>2.2.1</version>
 				<executions>
 					<execution>
 						<goals>
@@ -60,6 +61,52 @@
 					</excludes>
 				</configuration>
 			</plugin>
+      <plugin>
+          <groupId>com.github.github</groupId>
+          <artifactId>site-maven-plugin</artifactId>
+          <version>0.9</version>
+          <configuration>
+            <message>Maven artifacts for ${project.version}</message>
+            <noJekyll>true</noJekyll>
+            <outputDirectory>${project.build.directory}/mvn-releases</outputDirectory>
+            <branch>refs/heads/mvn</branch>
+            <merge>true</merge>
+            <includes><include>**/*</include></includes>
+            <repositoryName>releases</repositoryName>
+            <repositoryOwner>indenicatuv</repositoryOwner>
+          </configuration>
+          <executions>
+            <execution>
+              <goals>
+                <goal>site</goal>
+              </goals>
+              <phase>deploy</phase>
+            </execution>
+          </executions>
+      </plugin>
+      <plugin>
+          <groupId>com.github.github</groupId>
+          <artifactId>site-maven-plugin</artifactId>
+          <version>0.9</version>
+          <configuration>
+            <message>Maven artifacts for ${project.version}</message>
+            <noJekyll>true</noJekyll>
+            <outputDirectory>${project.build.directory}/mvn-snapshots</outputDirectory>
+            <branch>refs/heads/mvn</branch>
+            <merge>true</merge>
+            <includes><include>**/*</include></includes>
+            <repositoryName>snapshots</repositoryName>
+            <repositoryOwner>indenicatuv</repositoryOwner>
+          </configuration>
+          <executions>
+            <execution>
+              <goals>
+                <goal>site</goal>
+              </goals>
+              <phase>deploy</phase>
+            </execution>
+          </executions>
+      </plugin>
 		</plugins>
 	</build>
 
